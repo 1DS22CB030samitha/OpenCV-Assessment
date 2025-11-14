@@ -34,16 +34,14 @@ public class OpenGLRenderer {
         nativeResize(width, height);
     }
     
-    public void processFrame(SurfaceTexture surface) {
+    public void processFrame(SurfaceTexture surface, int width, int height) {
         if (surface != null && initialized) {
             // Get texture ID from SurfaceTexture
             // Note: In a real implementation, we'd need to extract the texture ID
             // For now, we'll process when the texture is available
             int textureId = getTextureIdFromSurface(surface);
-            if (textureId > 0) {
-                nativeProcessFrame(textureId, 
-                    surface.getDefaultBufferSize() & 0xFFFF,
-                    (surface.getDefaultBufferSize() >> 16) & 0xFFFF);
+            if (textureId > 0 && width > 0 && height > 0) {
+                nativeProcessFrame(textureId, width, height);
                 nativeRender();
             }
         }
