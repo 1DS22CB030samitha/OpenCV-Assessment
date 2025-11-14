@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Detection Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Edge Detection Viewer</h1>
+            <p class="subtitle">Web-based viewer for processed frames from Android app</p>
+        </header>
+        
+        <main>
+            <div class="viewer-section">
+                <canvas id="frameCanvas" width="640" height="480"></canvas>
+                <div class="controls">
+                    <button id="loadSampleBtn" class="btn btn-primary"><span>Load Sample Frame</span></button>
+                    <button id="clearBtn" class="btn btn-secondary"><span>Clear</span></button>
+                </div>
+            </div>
+            
+            <div class="stats-section">
+                <div id="statsContainer" class="stats-container">
+                    <div class="stat-item">
+                        <strong>FPS</strong>
+                        <span id="fpsValue">0.0</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Resolution</strong>
+                        <span id="resolutionValue">0x0</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Timestamp</strong>
+                        <span id="timestampValue">--</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <p>
+                    This web viewer demonstrates the ability to display processed frames from the Android
+                    edge detection application. In a production environment, frames would be transmitted
+                    via WebSocket or HTTP endpoint from the Android app.
+                </p>
+                <p>
+                    <strong>Note:</strong> This is a demonstration viewer. To see real-time processing,
+                    use the Android application.
+                </p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Built by <span class="author-name">Samitha</span> <span class="year">2025</span></p>
+        </footer>
+    </div>
+    
+    <script type="module" src="dist/index.js"></script>
+</body>
+</html>
+
